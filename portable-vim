@@ -14,3 +14,4 @@ let &runtimepath = printf('%s/,%s,%s/after', s:portable, &runtimepath, s:portabl
 
 let s:realvimrc = printf('%s/vimrc', s:portable)
 exec ":source" . s:realvimrc
+

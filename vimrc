@@ -124,9 +124,13 @@ set clipboard=unnamed                    "Use system clipboard by default
 set novisualbell
 set laststatus=2
 
-set history=1000                         " remember more commands and search history
-set undolevels=1000                      " use many muchos levels of undo
-set title                                " change the terminal's title
+set history=1000                         "remember more commands and search history
+set undolevels=1000                      "use many muchos levels of undo
+set title                                "change the terminal's title
+
+set ttyfast                              "buffer screen updates, OSX term is crap
+set lazyredraw                           "^^
+set colorcolumn=80                       "old school term style
 
 set nobackup
 set noswapfile
@@ -140,6 +144,10 @@ endif
 " ----------- Colors Configuration ----------------------------------
 
 colorscheme solarized
+
+" ----------- GoldenView Configuration ----------------------------------
+map <leader>bd :Bclose<CR>               "close curernt buffer
+map <leader>ba :1,1000 bd!<CR>           "close all buffers
 
 " ----------- GoldenView Configuration ----------------------------------
 
@@ -235,15 +243,17 @@ let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 
 " ----------- KeyMapping Configuration ----------------------------------
-
-nnoremap <UP> ""
-nnoremap <Down> ""
-nnoremap <Left> ""
-nnoremap <Right> ""
-
 nmap <C-t> :tabnew<CR>
 nmap <F2> :tabprevious<CR>
 nmap <F3> :tabnext<CR>
+nmap <leader><Space> :nohl<CR>
+
+" ----------- MoreKeyMaps Configuration --------------------------------
+command WQ wq
+command Wq wq
+command W w
+command Q q
+command Qa qa
 
 " ----------- Syntastic Configuration ----------------------------------
 "

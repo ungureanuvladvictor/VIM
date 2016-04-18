@@ -6,3 +6,4 @@ cd ..
 cp config/gdbinit ../.gdbinit
 cp config/ctags ../.ctags
 cat ../.bash_profile config/bash_profile >>../.bash_profile
+

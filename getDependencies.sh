@@ -7,3 +7,4 @@ brew install git
 brew install bash-completion
 brew install ag
 brew install tig
+

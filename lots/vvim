@@ -3,10 +3,7 @@ import platform
 import subprocess
 import sys
 
-if platform.system() == "Darwin":
-    path = "/usr/local/bin/vim"
-else:
-    path = "/usr/bin/vim"
+VIM_PATH = "/usr/local/bin/vim"
 
 args = [str(x) for x in sys.argv[1:]]
-subprocess.call([path, "-u", " ~/VIM/portable-vim"] + args)
+subprocess.call([VIM_PATH, "-u", " ~/VIM/portable-vim"] + args)

@@ -145,10 +145,11 @@ endif
 
 colorscheme solarized
 
-" ----------- GoldenView Configuration ----------------------------------
+" ----------- Buffer Configuration ----------------------------------
 map <leader>bd :Bclose<CR>               "close curernt buffer
 map <leader>ba :1,1000 bd!<CR>           "close all buffers
-
+nmap < :bprevious<CR>
+nmap > :bnext<CR>
 " ----------- GoldenView Configuration ----------------------------------
 
 let g:goldenview__enable_at_startup = 0

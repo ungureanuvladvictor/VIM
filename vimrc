@@ -12,6 +12,7 @@ set nocp
    NeoBundleFetch 'Shougo/neobundle.vim'
 
    NeoBundle 'scrooloose/syntastic'
+   NeoBundle 'bronson/vim-trailing-whitespace'
 
    NeoBundle 'ervandew/supertab'
    NeoBundle 'SirVer/ultisnips'
@@ -73,6 +74,7 @@ set nocp
    \ }
 
    NeoBundle 'Cosmin1490/cbalanUltiSnips'
+   NeoBundle 'hashivim/vim-terraform'
 
    call neobundle#end()          " required!
 

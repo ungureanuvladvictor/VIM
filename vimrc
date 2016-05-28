@@ -149,8 +149,8 @@ endif
 colorscheme solarized
 
 " ----------- Buffer Configuration ----------------------------------
-map <leader>bd :Bclose<CR>               "close curernt buffer
-map <leader>ba :1,1000 bd!<CR>           "close all buffers
+map <leader>bd :Bclose<CR>
+map <leader>ba :1,1000 bd!<CR>
 nmap < :bprevious<CR>
 nmap > :bnext<CR>
 "

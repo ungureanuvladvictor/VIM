@@ -205,8 +205,9 @@ let g:tagbar_type_coffee = {
         \ 'f:fields',
     \ ]
     \ }
-let g:tagbar_type_tf = {
-    \ 'ctagstype' : 'tf',
+
+let g:tagbar_type_terraform = {
+    \ 'ctagstype' : 'terraform',
     \ 'kinds'     : [
         \ 'c:resource',
         \ 'm:members',

@@ -253,6 +253,11 @@ nmap <F2> :tabprevious<CR>
 nmap <F3> :tabnext<CR>
 nmap <leader><Space> :nohl<CR>
 
+nnoremap <UP> ""
+nnoremap <Down> ""
+nnoremap <Left> ""
+nnoremap <Right> ""
+"
 " ----------- MoreKeyMaps Configuration --------------------------------
 command WQ wq
 command Wq wq

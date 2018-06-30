@@ -11,12 +11,16 @@ import sys
 resourcePattern = re.compile("^[ \t]*resource[ \t]+\"([a-zA-Z0-9_\-]+)\"[ \t]+\"([a-z0-9A-Z_\-]+).*\".*$", re.DOTALL);
 variablePattern = re.compile("^[ \t]*variable[ \t]+\"([a-zA-Z0-9_\-]+)\".*$", re.DOTALL);
 outputPattern = re.compile("^[ \t]*output[ \t]+\"([a-zA-Z0-9_\-]+)\".*$", re.DOTALL);
+modulePattern = re.compile("^[ \t]*module[ \t]+\"([a-zA-Z0-9_\-]+)\".*$", re.DOTALL);
+providerPattern = re.compile("^[ \t]*provider[ \t]+\"([a-zA-Z0-9_\-]+)\".*$", re.DOTALL);
 
 correctAnswerPattern = re.compile("^([0-9]+)\.\s+([A-E]+)$", re.DOTALL);
 
 parsed = {};
 variables = [];
 outputs = [];
+modules = [];
+providers = [];
 
 output = [];
 inputFilePath = sys.argv[len(sys.argv) - 1]
@@ -26,6 +30,9 @@ with codecs.open(inputFilePath, "r", "utf8") as inputFile:
         matcher = resourcePattern.match(line)
         variableMatcher = variablePattern.match(line)
         outputsMatcher = outputPattern.match(line)
+        modulesMatcher = modulePattern.match(line)
+        providersMatcher = providerPattern.match(line)
+
         if matcher:
             if not str(matcher.group(1)) in parsed:
                 parsed[str(matcher.group(1))] = [];
@@ -49,6 +56,20 @@ with codecs.open(inputFilePath, "r", "utf8") as inputFile:
                 "index": index,
                 "fileName": inputFileName
             })
+        elif modulesMatcher:
+            modules.append({
+                "name": str(modulesMatcher.group(1)),
+                "regex": str(modulesMatcher.group(1)),
+                "index": index,
+                "fileName": inputFileName
+            })
+        elif providersMatcher:
+            providers.append({
+                "name": str(providersMatcher.group(1)),
+                "regex": str(providersMatcher.group(1)),
+                "index": index,
+                "fileName": inputFileName
+            })
 
 for key in parsed:
     for item in parsed[key]:
@@ -61,6 +82,14 @@ for item in variables:
 
 for item in outputs:
     oline = item["name"] + "\t" + item["fileName"] + "\t/" + item["regex"] + " $/;\"" + "\to\tline:" + str(item["index"] + 1);
+    output.append(oline);
+
+for item in modules:
+    oline = item["name"] + "\t" + item["fileName"] + "\t/" + item["regex"] + " $/;\"" + "\tM\tline:" + str(item["index"] + 1);
+    output.append(oline);
+
+for item in providers:
+    oline = item["name"] + "\t" + item["fileName"] + "\t/" + item["regex"] + " $/;\"" + "\tp\tline:" + str(item["index"] + 1);
     output.append(oline);
 
 print("\n".join(output))

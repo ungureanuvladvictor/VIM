@@ -206,12 +206,14 @@ let g:tagbar_type_coffee = {
     \ ]
     \ }
 
-let g:tagbar_type_terraform = {
-    \ 'ctagstype' : 'terraform',
+let g:tagbar_type_tf = {
+    \ 'ctagstype' : 'tf',
     \ 'kinds'     : [
         \ 'c:resource',
         \ 'm:members',
         \ 'v:variables',
+        \ 'M:modules',
+        \ 'p:providers',
         \ 'o:outputs'
     \ ],
     \ 'sro' : '.',
@@ -231,6 +233,8 @@ let g:tagbar_type_terraform = {
         \ 'c:resource',
         \ 'm:members',
         \ 'v:variables',
+        \ 'M:modules',
+        \ 'p:providers',
         \ 'o:outputs'
     \ ],
     \ 'sro' : '.',
@@ -243,6 +247,7 @@ let g:tagbar_type_terraform = {
     \ 'ctagsbin'  : 'tftags.py',
     \ 'ctagsargs' : 't'
 \ }
+
 " ----------- DelimitMate Configuration ----------------------------------
 
 let delimitMate_expand_cr = 1

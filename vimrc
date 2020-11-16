@@ -78,6 +78,7 @@ set nocp
 "   NeoBundle 'Cosmin1490/cbalanUltiSnips'
    NeoBundle 'hashivim/vim-terraform'
    NeoBundle 'rbgrouleff/bclose.vim'
+   NeoBundle 'simeji/winresizer'
 
    call neobundle#end()          " required!
 
